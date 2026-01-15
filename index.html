@@ -2,7 +2,7 @@
 <html lang="fr" data-theme="dark">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
   <title>Jeremy Itshimbu — Développeur Front-End & Designer</title>
   <meta name="description" content="Portfolio professionnel de Jeremy Itshimbu, développeur front-end et designer. Spécialisé en interfaces modernes, animations et UX." />
   <meta name="author" content="Jeremy Itshimbu" />
@@ -42,6 +42,12 @@
       box-sizing: border-box;
     }
 
+    img {
+      max-inline-size: 100%;
+      block-size: auto;
+      display: block;
+    }
+
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--dark);
@@ -72,10 +78,11 @@
     }
 
     .container {
-      inline-size: 90%;
+      inline-size: 100%;
       max-inline-size: 1280px;
       margin: 0 auto;
       padding: 0 20px;
+      box-sizing: border-box;
     }
 
     /* Header */
@@ -96,6 +103,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -219,8 +227,10 @@
       position: absolute;
       inset-block-start: -50%;
       inset-inline-end: -20%;
-      inline-size: 600px;
-      block-size: 600px;
+      inline-size: min(600px, 80vw);
+      block-size: min(600px, 80vw);
+      max-inline-size: 600px;
+      max-block-size: 600px;
       background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
       border-radius: 50%;
       filter: blur(80px);
@@ -329,8 +339,8 @@
     }
 
     .btn:hover::before {
-      inline-size: 300px;
-      block-size: 300px;
+      inline-size: min(300px, 100vw);
+      block-size: min(300px, 100vw);
     }
 
     .btn span {
@@ -400,6 +410,8 @@
     .hero-photo {
       inline-size: 160px;
       block-size: 160px;
+      max-inline-size: 160px;
+      max-block-size: 160px;
       border-radius: 50%;
       object-fit: cover;
       margin: 0 auto 24px;
@@ -410,6 +422,12 @@
 
     .hero-photo:hover {
       transform: scale(1.05) rotate(5deg);
+    }
+
+    @media (max-inline-size: 768px) {
+      .hero-photo:hover {
+        transform: scale(1.02);
+      }
     }
 
     .hero-stats {
@@ -945,30 +963,74 @@
       border-color: var(--accent);
     }
 
-    /* Responsive */
+    /* Responsive - Desktop Large */
+    @media (max-inline-size: 1440px) {
+      .container {
+        max-inline-size: 1140px;
+      }
+    }
+
+    /* Responsive - Desktop Medium & Tablet Landscape */
     @media (max-inline-size: 1024px) {
+      .container {
+        max-inline-size: 960px;
+        padding: 0 24px;
+      }
+
       .hero-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
 
       .hero-card {
-        max-inline-size: 400px;
+        max-inline-size: 450px;
         margin: 0 auto;
       }
 
       .projects {
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 24px;
+      }
+
+      .project img {
+        block-size: 200px;
+      }
+
+      .hero::before {
+        inline-size: 400px;
+        block-size: 400px;
       }
     }
 
+    /* Responsive - Tablet Portrait */
+    @media (max-inline-size: 900px) {
+      .projects {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card ul li {
+        padding-inline-start: 20px;
+        font-size: 0.95rem;
+      }
+    }
+
+    /* Responsive - Mobile Landscape & Tablet Small */
     @media (max-inline-size: 768px) {
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+
       .container {
-        padding: 0 16px;
+        padding: 0 20px;
+        inline-size: 100%;
       }
 
       header {
         padding: 0.75rem 0;
+      }
+
+      .nav {
+        gap: 12px;
       }
 
       nav ul {
@@ -977,53 +1039,211 @@
 
       .menu-toggle {
         display: flex;
+        inline-size: 40px;
+        block-size: 40px;
+        font-size: 1.2rem;
+      }
+
+      .theme-toggle {
+        inline-size: 40px;
+        block-size: 40px;
+        font-size: 1.1rem;
+      }
+
+      .brand {
+        font-size: 1.1rem;
+      }
+
+      .brand .logo {
+        inline-size: 38px;
+        block-size: 38px;
+        font-size: 1.1rem;
       }
 
       .hero {
-        padding: 100px 0 60px;
+        padding: 80px 0 50px;
         min-block-size: auto;
       }
 
+      .hero::before {
+        inline-size: 300px;
+        block-size: 300px;
+        inset-block-start: -30%;
+        inset-inline-end: -30%;
+      }
+
+      .hero-grid {
+        gap: 32px;
+      }
+
       .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 7vw, 2.5rem);
+        margin-block-end: 1rem;
       }
 
       .lead {
-        font-size: 1.1rem;
+        font-size: clamp(1rem, 3vw, 1.1rem);
+        margin-block-end: 1.5rem;
+        max-inline-size: 100%;
+      }
+
+      .kicker {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        margin-block-end: 20px;
       }
 
       .cta {
         flex-direction: column;
+        gap: 12px;
       }
 
       .cta .btn {
         inline-size: 100%;
         justify-content: center;
+        padding: 12px 24px;
+        font-size: 0.95rem;
       }
 
       section {
         padding: 60px 0;
       }
 
+      .section-title {
+        margin-block-end: 40px;
+      }
+
       .section-title h2 {
-        font-size: 2rem;
+        font-size: clamp(1.75rem, 6vw, 2rem);
+      }
+
+      .line {
+        inline-size: 60px;
+        block-size: 3px;
       }
 
       .about {
         grid-template-columns: 1fr;
+        gap: 24px;
       }
 
       .projects {
         grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .project {
+        max-inline-size: 100%;
+      }
+
+      .project img {
+        block-size: 180px;
+      }
+
+      .project .content {
+        padding: 20px;
+      }
+
+      .project .content h3 {
+        font-size: 1.2rem;
+      }
+
+      .project .content p {
+        font-size: 0.9rem;
+      }
+
+      .project .actions {
+        padding: 0 20px 20px;
+        flex-wrap: wrap;
+      }
+
+      .project .actions .btn {
+        flex: 1;
+        min-inline-size: 120px;
+      }
+
+      .timeline {
+        gap: 20px;
+      }
+
+      .t-item {
+        padding: 20px;
+      }
+
+      .t-item h4 {
+        font-size: 1.15rem;
+      }
+
+      .t-item p {
+        font-size: 0.9rem;
       }
 
       .form-row {
         grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      input, textarea {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+      }
+
+      textarea {
+        min-block-size: 120px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .card h3 {
+        font-size: 1.3rem;
+      }
+
+      .card p {
+        font-size: 0.95rem;
+      }
+
+      .card ul {
+        font-size: 0.95rem;
+      }
+
+      .card a {
+        font-size: 0.95rem;
+        margin-block-end: 10px;
+      }
+
+      .card a i {
+        font-size: 1.1rem;
+      }
+
+      .skills {
+        gap: 8px;
+      }
+
+      .chip {
+        padding: 5px 12px;
+        font-size: 0.8rem;
+      }
+
+      footer {
+        padding: 40px 0;
       }
 
       footer .container {
         flex-direction: column;
         text-align: center;
+        gap: 20px;
+      }
+
+      footer .social {
+        justify-content: center;
+      }
+
+      .social a {
+        inline-size: 40px;
+        block-size: 40px;
+        font-size: 1rem;
       }
 
       .to-top {
@@ -1031,56 +1251,403 @@
         inset-inline-end: 20px;
         inline-size: 48px;
         block-size: 48px;
+        font-size: 1.3rem;
       }
 
       .hero-stats {
         grid-template-columns: repeat(3, 1fr);
         gap: 12px;
+        margin-block-start: 20px;
       }
 
       .stat-item b {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+      }
+
+      .stat-item small {
+        font-size: 0.8rem;
+      }
+
+      .hero-card {
+        padding: 28px;
+      }
+
+      .hero-photo {
+        inline-size: 140px;
+        block-size: 140px;
+        margin-block-end: 20px;
+      }
+
+      .mobile-nav .close-menu {
+        inset-block-start: 20px;
+        inset-inline-end: 20px;
+        inline-size: 44px;
+        block-size: 44px;
+        font-size: 1.3rem;
+      }
+
+      .mobile-nav a {
+        font-size: 1.3rem;
       }
     }
 
+    /* Responsive - Mobile Portrait */
     @media (max-inline-size: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      header {
+        padding: 0.6rem 0;
+      }
+
       .brand {
         font-size: 1rem;
+        gap: 8px;
       }
 
       .brand .logo {
+        inline-size: 34px;
+        block-size: 34px;
+        font-size: 1rem;
+      }
+
+      .menu-toggle,
+      .theme-toggle {
         inline-size: 36px;
         block-size: 36px;
         font-size: 1rem;
       }
 
+      .hero {
+        padding: 70px 0 40px;
+      }
+
+      .hero::before {
+        inline-size: 250px;
+        block-size: 250px;
+      }
+
+      .hero-grid {
+        gap: 28px;
+      }
+
       .hero-content h1 {
-        font-size: 2rem;
+        font-size: clamp(1.75rem, 8vw, 2rem);
+        line-height: 1.2;
+      }
+
+      .lead {
+        font-size: clamp(0.95rem, 4vw, 1rem);
+        line-height: 1.6;
+      }
+
+      .kicker {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+      }
+
+      .cta .btn {
+        padding: 11px 20px;
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+
+      .section-title {
+        margin-block-end: 32px;
+      }
+
+      .section-title h2 {
+        font-size: clamp(1.5rem, 7vw, 1.75rem);
+      }
+
+      .line {
+        inline-size: 50px;
+        block-size: 3px;
+      }
+
+      .about,
+      .projects,
+      .timeline {
+        gap: 20px;
       }
 
       .card {
-        padding: 24px;
-      }
-
-      .project .content {
         padding: 20px;
       }
 
+      .card h3 {
+        font-size: 1.2rem;
+        margin-block-end: 12px;
+      }
+
+      .card p {
+        font-size: 0.9rem;
+        margin-block-end: 12px;
+      }
+
+      .card ul {
+        font-size: 0.9rem;
+      }
+
+      .card ul li {
+        padding: 6px 0;
+        padding-inline-start: 18px;
+      }
+
+      .card a {
+        font-size: 0.9rem;
+        margin-block-end: 8px;
+      }
+
+      .project .content {
+        padding: 18px;
+      }
+
+      .project .content h3 {
+        font-size: 1.15rem;
+      }
+
+      .project .content p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+
+      .project img {
+        block-size: 160px;
+      }
+
+      .project .actions {
+        padding: 0 18px 18px;
+        gap: 8px;
+      }
+
+      .project .actions .btn {
+        padding: 9px 16px;
+        font-size: 0.85rem;
+        min-inline-size: 100px;
+      }
+
+      .t-item {
+        padding: 18px;
+      }
+
+      .t-item h4 {
+        font-size: 1.1rem;
+      }
+
+      .t-item small {
+        font-size: 0.8rem;
+      }
+
+      .t-item p {
+        font-size: 0.85rem;
+      }
+
+      .skills {
+        gap: 6px;
+      }
+
+      .chip {
+        padding: 4px 10px;
+        font-size: 0.75rem;
+      }
+
+      .form-row {
+        gap: 14px;
+      }
+
+      label {
+        font-size: 0.9rem;
+        margin-block-end: 6px;
+      }
+
+      input, textarea {
+        padding: 11px 14px;
+        font-size: 0.9rem;
+      }
+
+      textarea {
+        min-block-size: 110px;
+      }
+
+      .btn.primary {
+        padding: 11px 20px;
+        font-size: 0.9rem;
+      }
+
+      footer {
+        padding: 32px 0;
+      }
+
+      footer .container {
+        gap: 16px;
+      }
+
+      footer .container > span {
+        font-size: 0.9rem;
+      }
+
+      .social a {
+        inline-size: 38px;
+        block-size: 38px;
+        font-size: 0.95rem;
+      }
+
+      .to-top {
+        inset-block-end: 16px;
+        inset-inline-end: 16px;
+        inline-size: 44px;
+        block-size: 44px;
+        font-size: 1.2rem;
+      }
+
       .hero-card {
-        padding: 24px;
+        padding: 20px;
       }
 
       .hero-photo {
-        inline-size: 120px;
-        block-size: 120px;
+        inline-size: 110px;
+        block-size: 110px;
+        margin-block-end: 16px;
+      }
+
+      .hero-card h3 {
+        font-size: 1.2rem;
+        margin-block-end: 8px;
+      }
+
+      .hero-card p {
+        font-size: 0.85rem;
+      }
+
+      .hero-stats {
+        gap: 10px;
+        margin-block-start: 16px;
       }
 
       .stat-item b {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
       }
 
       .stat-item small {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+      }
+
+      .mobile-nav .close-menu {
+        inset-block-start: 16px;
+        inset-inline-end: 16px;
+        inline-size: 40px;
+        block-size: 40px;
+        font-size: 1.2rem;
+      }
+
+      .mobile-nav ul {
+        gap: 24px;
+      }
+
+      .mobile-nav a {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Fix pour les très petits écrans */
+    @media (max-inline-size: 320px) {
+      .brand span {
+        display: none;
+      }
+
+      .kicker {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+      }
+
+      .hero-content h1 {
+        font-size: 1.5rem;
+      }
+
+      .card,
+      .project .content {
+        padding: 14px;
+      }
+    }
+
+    /* Amélioration du touch sur mobile */
+    @media (hover: none) and (pointer: coarse) {
+      .btn,
+      .chip,
+      .project,
+      .card,
+      .theme-toggle,
+      .menu-toggle {
+        -webkit-tap-highlight-color: rgba(99, 102, 241, 0.2);
+      }
+
+      .project:hover {
+        transform: none;
+      }
+
+      .btn:hover::before {
+        inline-size: 0;
+        block-size: 0;
+      }
+    }
+
+    /* Responsive - Mobile Small */
+    @media (max-inline-size: 360px) {
+      .container {
+        padding: 0 12px;
+      }
+
+      .hero-content h1 {
+        font-size: 1.6rem;
+      }
+
+      .lead {
+        font-size: 0.9rem;
+      }
+
+      .card,
+      .project .content,
+      .t-item {
+        padding: 16px;
+      }
+
+      .section-title h2 {
+        font-size: 1.4rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+    }
+
+    /* Responsive - Landscape orientation */
+    @media (max-block-size: 600px) and (orientation: landscape) {
+      .hero {
+        padding: 60px 0 40px;
+        min-block-size: auto;
+      }
+
+      .hero-card {
+        padding: 20px;
+      }
+
+      .hero-photo {
+        inline-size: 100px;
+        block-size: 100px;
+      }
+
+      section {
+        padding: 40px 0;
       }
     }
 
