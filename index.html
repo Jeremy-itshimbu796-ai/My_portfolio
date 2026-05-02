@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <title>Jeremy Itshimbu — Développeur Front-End &amp; Designer</title>
-  <meta name="description" content="Portfolio de Jeremy Itshimbu, développeur front-end et designer.">
+  <meta name="description" content="Portfolio de Jeremy Itshimbu, développeur front-end et designer spécialisé en interfaces modernes, animations et UX.">
   <meta name="author" content="Jeremy Itshimbu">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,6 +180,84 @@ footer{padding:44px 0;border-top:1px solid var(--bd)}
 @media(max-width:768px){.visme-embed-container,.visme-embed-container iframe{min-height:600px}}
 .cgrid{align-items:stretch !important}
 
+/* ─── FOOTER ─────────────────────────────────────────── */
+.site-footer{position:relative;padding:80px 0 40px;border-top:1px solid var(--bd);overflow:hidden}
+.footer-glow{position:absolute;bottom:-80px;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(99,102,241,.12) 0%,transparent 70%);pointer-events:none}
+.ft-top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:48px}
+.ft-brand{display:flex;align-items:center;gap:14px}
+.ft-name{font-family:var(--fd);font-size:1.3rem;font-weight:600;color:var(--txt)}
+.ft-role{font-size:.78rem;color:var(--mut);margin-top:2px;letter-spacing:.04em}
+.ft-avail{display:inline-flex;align-items:center;gap:9px;padding:8px 18px;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.25);border-radius:50px;font-size:.8rem;color:var(--goldl);font-weight:500}
+.ft-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.ft-cta-line{font-family:var(--fd);font-size:clamp(2.5rem,6vw,5rem);font-weight:700;color:var(--txt);line-height:1;letter-spacing:-.02em}
+.ft-cta-link{display:inline-flex;align-items:center;gap:12px;font-family:var(--fd);font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:600;color:var(--goldl);border:1px solid rgba(99,102,241,.3);border-radius:50px;padding:14px 32px;transition:all .4s var(--ease);white-space:nowrap;position:relative;overflow:hidden}
+.ft-cta-link::before{content:'';position:absolute;inset:0;background:var(--grad);opacity:0;transition:opacity .4s var(--ease);z-index:0}
+.ft-cta-link i,.ft-cta-link span,.ft-cta-link > *{position:relative;z-index:1}
+.ft-cta-link:hover{color:#fff;border-color:transparent;transform:translateX(6px)}
+.ft-cta-link:hover::before{opacity:1}
+.ft-cta-link i{transition:transform .4s var(--ease)}
+.ft-cta-link:hover i{transform:translateX(6px)}
+.ft-divider{height:1px;background:linear-gradient(90deg,transparent,var(--bd2),transparent);margin-bottom:40px}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.ft-nav{display:flex;gap:28px;flex-wrap:wrap}
+.ft-nav a{font-size:.85rem;color:var(--mut);transition:color .2s;position:relative}
+.ft-nav a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--acc);transition:width .3s var(--ease)}
+.ft-nav a:hover{color:var(--txt)}
+.ft-nav a:hover::after{width:100%}
+.ft-soc{display:flex;gap:8px}
+.ft-soc a{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:var(--bgc);border:1px solid var(--bd);border-radius:50px;font-size:.8rem;color:var(--mut2);transition:all .3s var(--ease);white-space:nowrap}
+.ft-soc a span{font-size:.78rem}
+.ft-soc a:hover{border-color:var(--acc);color:var(--goldl);transform:translateY(-3px);box-shadow:0 6px 20px rgba(99,102,241,.2)}
+.ft-copy{font-size:.8rem;color:var(--mut);white-space:nowrap}
+
+/* ─── SPLIT TEXT ─────────────────────────────────────── */
+.split-text .char{display:inline-block;opacity:0;transform:translateY(60px) rotate(8deg);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.split-text.animated .char{opacity:1;transform:translateY(0) rotate(0deg)}
+
+/* ─── PARTICLES ──────────────────────────────────────── */
+#particles{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;border-radius:50%;pointer-events:none;animation:particleFloat linear infinite}
+@keyframes particleFloat{0%{transform:translateY(0) translateX(0) scale(1);opacity:0}10%{opacity:1}90%{opacity:.5}100%{transform:translateY(-100vh) translateX(var(--dx)) scale(.5);opacity:0}}
+
+/* ─── TILT CARDS ─────────────────────────────────────── */
+.proj{transform-style:preserve-3d;perspective:1000px}
+.proj .tilt-inner{transform-style:preserve-3d;transition:transform .1s linear}
+.proj-shine{position:absolute;inset:0;border-radius:var(--rlg);pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,0.06) 0%,transparent 60%);opacity:0;transition:opacity .3s;z-index:2}
+.proj:hover .proj-shine{opacity:1}
+
+/* ─── MAGNETIC ───────────────────────────────────────── */
+.mag-btn{transition:transform .3s var(--ease)}
+
+/* ─── SCROLL INDICATOR ───────────────────────────────── */
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mut);z-index:2;animation:fadeInUp 1s var(--ease) 1.5s both}
+.scroll-hint .arrow{width:1px;height:40px;background:linear-gradient(to bottom,var(--acc),transparent);position:relative;margin:0 auto}
+.scroll-hint .arrow::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);border:4px solid transparent;border-top-color:transparent;width:6px;height:6px;border-radius:50%;background:var(--acc);animation:scrollDrop 1.5s ease infinite}
+@keyframes scrollDrop{0%{top:0;opacity:1}100%{top:32px;opacity:0}}
+@keyframes fadeInUp{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}
+
+/* ─── TYPEWRITER cursor ──────────────────────────────── */
+.typed-cursor{display:inline-block;width:3px;height:.85em;background:var(--acc);vertical-align:middle;margin-left:4px;animation:blink-cur .8s step-end infinite}
+@keyframes blink-cur{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ─── SECTION UNDERLINE HOVER ────────────────────────── */
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--grad);border-radius:2px;transition:width .35s var(--ease)}
+.nav-links a:hover::after,.nav-links a.act::after{width:100%}
+
+/* ─── STAGGER delay helpers ──────────────────────────── */
+.pgrid .proj:nth-child(1){--d:0s}
+.pgrid .proj:nth-child(2){--d:.08s}
+.pgrid .proj:nth-child(3){--d:.16s}
+.pgrid .proj:nth-child(4){--d:.24s}
+
+@media(max-width:768px){
+  .ft-cta{flex-direction:column;align-items:flex-start;gap:16px}
+  .ft-bottom{flex-direction:column;align-items:flex-start;gap:20px}
+  .ft-soc a span{display:none}
+  .ft-soc a{padding:8px 10px}
+  .scroll-hint{display:none}
+}
+
   </style>
 </head>
 <body>
@@ -222,8 +300,8 @@ footer{padding:44px 0;border-top:1px solid var(--bd)}
       <div>
         <div class="hbadge rv"><span class="ldot"></span>Disponible pour missions freelance</div>
         <h1 class="hname">
-          <span class="n1 rv" style="transition-delay:.05s">Jeremy</span>
-          <span class="n2 rv" style="transition-delay:.1s">Itshimbu</span>
+          <span class="n1 split-text">Jeremy</span>
+          <span class="n2 split-text" style="padding-left:2rem">Itshimbu</span>
         </h1>
         <p class="hrole rv" style="transition-delay:.15s">Developpeur Front-End &amp; Designer</p>
         <p class="hdesc rv" style="transition-delay:.2s">Je concois des interfaces elegantes et performantes — de la maquette Figma au produit final. Specialise en HTML, CSS, JavaScript et animations modernes.</p>
@@ -241,7 +319,7 @@ footer{padding:44px 0;border-top:1px solid var(--bd)}
         </div>
         <div class="sgrid">
           <div class="sbox"><b data-t="5" data-s="+">0</b><small>Projets</small></div>
-          <div class="sbox"><b data-t="2" data-s="+">0</b><small>Ans d'exp.</small></div>
+          <div class="sbox"><b data-t="3" data-s="+">0</b><small>Ans d'exp.</small></div>
           <div class="sbox"><b data-t="80" data-s="%">0</b><small>Satisfaction</small></div>
         </div>
       </aside>
@@ -257,7 +335,7 @@ footer{padding:44px 0;border-top:1px solid var(--bd)}
     <div class="agrid">
       <div class="rvl">
         <div class="atxt">
-          <p>Developpeur front-end base a <strong>Kinshasa, RDC</strong>, je transforme des idees en experiences numeriques memorables. Mon approche est centree sur la <strong>performance</strong>, l'accessibilite et la precision de chaque detail.</p>
+          <p>Developpeur front-end base a <strong>Lubumbashi, RDC</strong>, je transforme des idees en experiences numeriques memorables. Mon approche est centree sur la <strong>performance</strong>, l'accessibilite et la precision de chaque detail.</p>
           <p>Je travaille avec des <strong>startups, PME et agences</strong> pour concevoir des interfaces qui engagent et convertissent. Disponible pour missions a distance ou sur site.</p>
         </div>
         <div class="aquote"><p>Un bon design n'est pas seulement beau — il doit etre juste.</p></div>
@@ -380,72 +458,288 @@ footer{padding:44px 0;border-top:1px solid var(--bd)}
   </div>
 </section>
 
-<footer>
+<footer class="site-footer">
+  <div class="footer-glow"></div>
   <div class="container">
-    <div class="foot">
-      <p class="fcopy">&copy; <span id="yr"></span> <span>Jeremy Itshimbu</span>. Tous droits reserves.</p>
-      <div class="fsoc">
-        <a href="https://www.linkedin.com/in/jeremy-itshimbu-66491837a" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/Jeremy-itshimbu796-ai" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://x.com/jerez796" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="https://wa.me/+243903933737" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- top band -->
+    <div class="ft-top">
+      <div class="ft-brand rv">
+        <div class="lmark" style="width:48px;height:48px;font-size:1rem">JI</div>
+        <div>
+          <div class="ft-name">Jeremy Itshimbu</div>
+          <div class="ft-role">Developpeur Front-End &amp; Designer</div>
+        </div>
+      </div>
+      <div class="ft-avail rv" style="transition-delay:.1s">
+        <span class="ldot"></span>
+        Disponible pour de nouveaux projets
       </div>
     </div>
+
+    <!-- big cta text -->
+    <div class="ft-cta rv" style="transition-delay:.15s">
+      <span class="ft-cta-line">Une idee ?</span>
+      <a href="#contact" class="ft-cta-link mag-btn">Travaillons ensemble <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="ft-divider"></div>
+
+    <!-- nav + social -->
+    <div class="ft-bottom">
+      <nav class="ft-nav rv">
+        <a href="#about">A propos</a>
+        <a href="#projects">Projets</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="ft-soc rv" style="transition-delay:.1s">
+        <a href="https://www.linkedin.com/in/jeremy-itshimbu-66491837a" target="_blank" rel="noopener" aria-label="LinkedIn" class="mag-btn"><i class="fab fa-linkedin"></i><span>LinkedIn</span></a>
+        <a href="https://github.com/Jeremy-itshimbu796-ai" target="_blank" rel="noopener" aria-label="GitHub" class="mag-btn"><i class="fab fa-github"></i><span>GitHub</span></a>
+        <a href="https://x.com/jerez796" target="_blank" rel="noopener" aria-label="Twitter" class="mag-btn"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+        <a href="https://wa.me/+243903933737" target="_blank" rel="noopener" aria-label="WhatsApp" class="mag-btn"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+      </div>
+      <p class="ft-copy rv" style="transition-delay:.2s">&copy; <span id="yr"></span> Jeremy Itshimbu</p>
+    </div>
+
   </div>
 </footer>
 <button class="totop" id="tt" aria-label="Haut de page"><i class="fas fa-arrow-up"></i></button>
 
 <script>
+/* ─── YEAR ────────────────────────────────────────────── */
 document.getElementById('yr').textContent = new Date().getFullYear();
-window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('done'), 1500));
-const cD = document.getElementById('cDot'), cR = document.getElementById('cRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cD.style.left=mx+'px'; cD.style.top=my+'px'; });
-(function tick(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; cR.style.left=rx+'px'; cR.style.top=ry+'px'; requestAnimationFrame(tick); })();
-document.querySelectorAll('a,button,.proj,.svcs li').forEach(el => {
-  el.addEventListener('mouseenter', () => cR.classList.add('hov'));
-  el.addEventListener('mouseleave', () => cR.classList.remove('hov'));
-});
+
+/* ─── LOADER ──────────────────────────────────────────── */
+window.addEventListener('load', () => setTimeout(() => {
+  document.getElementById('loader').classList.add('done');
+  initAll();
+}, 1200));
+
+function initAll() {
+  initCursor();
+  initParticles();
+  initSplitText();
+  initTilt();
+  initMagnetic();
+  initScrollHint();
+}
+
+/* ─── CURSOR ──────────────────────────────────────────── */
+function initCursor() {
+  const cD = document.getElementById('cDot'), cR = document.getElementById('cRing');
+  if (!cD) return;
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => {
+    mx=e.clientX; my=e.clientY;
+    cD.style.left=mx+'px'; cD.style.top=my+'px';
+  });
+  (function tick(){
+    rx+=(mx-rx)*.1; ry+=(my-ry)*.1;
+    cR.style.left=rx+'px'; cR.style.top=ry+'px';
+    requestAnimationFrame(tick);
+  })();
+  document.querySelectorAll('a,button,.proj,.svcs li,.ft-cta-link').forEach(el => {
+    el.addEventListener('mouseenter', () => cR.classList.add('hov'));
+    el.addEventListener('mouseleave', () => cR.classList.remove('hov'));
+  });
+}
+
+/* ─── PARTICLES ───────────────────────────────────────── */
+function initParticles() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  const wrap = document.createElement('div');
+  wrap.id = 'particles';
+  hero.appendChild(wrap);
+
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const size = Math.random() * 4 + 2;
+    const dur   = Math.random() * 12 + 8;
+    const delay = Math.random() * 8;
+    const x     = Math.random() * 100;
+    const dx    = (Math.random() - 0.5) * 120;
+    const alpha = Math.random() * 0.4 + 0.1;
+    const hue   = Math.random() > 0.5 ? '99,102,241' : '139,92,246';
+    p.style.cssText = `
+      width:${size}px;height:${size}px;
+      left:${x}%;bottom:-10px;
+      background:rgba(${hue},${alpha});
+      --dx:${dx}px;
+      animation-duration:${dur}s;
+      animation-delay:${delay}s;
+    `;
+    wrap.appendChild(p);
+  }
+}
+
+/* ─── SPLIT TEXT ──────────────────────────────────────── */
+function initSplitText() {
+  document.querySelectorAll('.split-text').forEach(el => {
+    const text = el.textContent;
+    el.innerHTML = text.split('').map((ch, i) =>
+      `<span class="char" style="transition-delay:${i * 0.04}s">${ch === ' ' ? '&nbsp;' : ch}</span>`
+    ).join('');
+
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { el.classList.add('animated'); obs.disconnect(); }
+    }, { threshold: 0.3 });
+    obs.observe(el);
+  });
+}
+
+/* ─── TILT 3D on project cards ────────────────────────── */
+function initTilt() {
+  document.querySelectorAll('.proj').forEach(card => {
+    // Add shine overlay
+    const shine = document.createElement('div');
+    shine.className = 'proj-shine';
+    card.appendChild(shine);
+
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top)  / r.height;
+      const rotX = (y - 0.5) * -10;
+      const rotY = (x - 0.5) *  10;
+      card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-6px)`;
+      card.style.boxShadow = `${-rotY*2}px ${rotX*2}px 40px rgba(99,102,241,.3)`;
+      shine.style.setProperty('--mx', (x * 100) + '%');
+      shine.style.setProperty('--my', (y * 100) + '%');
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
+  });
+}
+
+/* ─── MAGNETIC BUTTONS ────────────────────────────────── */
+function initMagnetic() {
+  document.querySelectorAll('.mag-btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width  / 2) * 0.3;
+      const y = (e.clientY - r.top  - r.height / 2) * 0.3;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    btn.addEventListener('mouseleave', () => btn.style.transform = '');
+  });
+}
+
+/* ─── SCROLL HINT ─────────────────────────────────────── */
+function initScrollHint() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  const hint = document.createElement('div');
+  hint.className = 'scroll-hint';
+  hint.innerHTML = '<span>Scroll</span><div class="arrow"></div>';
+  hero.appendChild(hint);
+  window.addEventListener('scroll', () => {
+    hint.style.opacity = window.scrollY > 80 ? '0' : '1';
+  }, { passive: true });
+}
+
+/* ─── SCROLL PROGRESS ─────────────────────────────────── */
 const sP = document.getElementById('sP');
-window.addEventListener('scroll', () => { sP.style.width = (window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%'; }, {passive:true});
+window.addEventListener('scroll', () => {
+  sP.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+}, { passive: true });
+
+/* ─── HEADER ──────────────────────────────────────────── */
 const hdr = document.getElementById('hdr');
-window.addEventListener('scroll', () => hdr.classList.toggle('sc', window.scrollY>60), {passive:true});
+window.addEventListener('scroll', () => hdr.classList.toggle('sc', window.scrollY > 60), { passive: true });
+
+/* ─── MOBILE NAV ──────────────────────────────────────── */
 const mNav = document.getElementById('mNav');
-const openN = () => { mNav.classList.add('open'); mNav.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; };
+const openN  = () => { mNav.classList.add('open'); mNav.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; };
 const closeN = () => { mNav.classList.remove('open'); mNav.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
 document.getElementById('mBtn').addEventListener('click', openN);
 document.getElementById('xBtn').addEventListener('click', closeN);
 document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', closeN));
+
+/* ─── THEME ───────────────────────────────────────────── */
 const root = document.documentElement;
-const applyT = t => { root.setAttribute('data-theme',t); localStorage.setItem('theme',t); document.getElementById('tIco').className = t==='dark'?'fas fa-moon':'fas fa-sun'; };
-applyT(localStorage.getItem('theme')||'dark');
-document.getElementById('tBtn').addEventListener('click', () => applyT(root.getAttribute('data-theme')==='dark'?'light':'dark'));
+const applyT = t => {
+  root.setAttribute('data-theme', t);
+  localStorage.setItem('theme', t);
+  document.getElementById('tIco').className = t === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+};
+applyT(localStorage.getItem('theme') || 'dark');
+document.getElementById('tBtn').addEventListener('click', () =>
+  applyT(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+/* ─── SMOOTH SCROLL ───────────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href');
-    if(id==='#'){ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); return; }
+    if (id === '#') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
     const el = document.querySelector(id);
-    if(el){ e.preventDefault(); window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-hdr.offsetHeight-16,behavior:'smooth'}); }
+    if (el) {
+      e.preventDefault();
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - hdr.offsetHeight - 16, behavior: 'smooth' });
+    }
   });
 });
-const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); } }), {threshold:.1,rootMargin:'0px 0px -36px 0px'});
+
+/* ─── REVEAL ON SCROLL ────────────────────────────────── */
+const obs = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); }
+}), { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
 document.querySelectorAll('.rv,.rvl').forEach(el => obs.observe(el));
+
+/* ─── COUNTER ANIMATION ───────────────────────────────── */
 const cObs = new IntersectionObserver(es => es.forEach(e => {
-  if(!e.isIntersecting) return;
-  const el=e.target, tgt=+el.dataset.t, sf=el.dataset.s||'';
-  let cur=0; const tm=setInterval(()=>{ cur++; el.textContent=cur+sf; if(cur>=tgt) clearInterval(tm); }, 1200/tgt);
+  if (!e.isIntersecting) return;
+  const el = e.target, tgt = +el.dataset.t, sf = el.dataset.s || '';
+  let cur = 0;
+  const interval = Math.max(20, 1200 / tgt);
+  const tm = setInterval(() => { cur++; el.textContent = cur + sf; if (cur >= tgt) clearInterval(tm); }, interval);
   cObs.unobserve(el);
-}), {threshold:.5});
+}), { threshold: 0.5 });
 document.querySelectorAll('[data-t]').forEach(c => cObs.observe(c));
+
+/* ─── ACTIVE NAV ──────────────────────────────────────── */
 const sObs = new IntersectionObserver(es => es.forEach(e => {
-  if(e.isIntersecting) document.querySelectorAll('.nav-links a').forEach(l => l.classList.toggle('act',l.getAttribute('href')==='#'+e.target.id));
-}), {rootMargin:'-40% 0px -40% 0px'});
+  if (e.isIntersecting)
+    document.querySelectorAll('.nav-links a').forEach(l =>
+      l.classList.toggle('act', l.getAttribute('href') === '#' + e.target.id));
+}), { rootMargin: '-40% 0px -40% 0px' });
 document.querySelectorAll('section,main').forEach(s => sObs.observe(s));
+
+/* ─── BACK TO TOP ─────────────────────────────────────── */
 const tt = document.getElementById('tt');
-window.addEventListener('scroll', () => tt.classList.toggle('show', window.scrollY>600), {passive:true});
-tt.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+window.addEventListener('scroll', () => tt.classList.toggle('show', window.scrollY > 600), { passive: true });
+tt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ─── PARALLAX HERO ───────────────────────────────────── */
+if (window.innerWidth > 768) {
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    const hero = document.querySelector('.hero-content');
+    const vis  = document.querySelector('.hvis');
+    if (hero) hero.style.transform = `translateY(${y * 0.12}px)`;
+    if (vis)  vis.style.transform  = `translateY(${y * 0.06}px)`;
+  }, { passive: true });
+}
+
+/* ─── SECTION NUM PARALLAX ────────────────────────────── */
+document.querySelectorAll('.snum').forEach(num => {
+  const sObs2 = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    let tick = () => {
+      const r = num.parentElement.getBoundingClientRect();
+      const prog = 1 - (r.top / window.innerHeight);
+      num.style.transform = `translateY(${prog * -40}px)`;
+      if (r.bottom > 0) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, { threshold: 0 });
+  sObs2.observe(num.parentElement);
+});
 
 </script>
 </body>
 </html>
-
